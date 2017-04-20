@@ -17,6 +17,9 @@
   /*  background-image: url("city.png");
     background-color: #cccccc;
   }*/
+  #background {
+    width:70%;
+  }
   #carDiv {
     position: absolute;
     zIndex: 1000;
@@ -41,18 +44,44 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
   <script>
+    // controlling car movement
     $(document).on('keydown', function(e) {
-      console.log("key down", e);
-      if (e.keyCode == '37') {
-         // left arrow
-         console.log('left');
+      if (e.keyCode == '37') { // left arrow
+        var car = $("#carDiv");
+        var carPosition = car.offset().left - 20;
+        console.log(carPosition);
+        if (carPosition < 40) {
+          return;
+        }
+        car.animate(
+          {
+            left: carPosition.toString() + "px"
+          }, 20
+        );
       }
-      else if (e.keyCode == '39') {
-         console.log('right');
-         var x = $("#carDiv").offset().left + 10
-         $("#carDiv")[0].style.left = x.toString() + "px";
+      else if (e.keyCode == '39') { // right arrow
+        var car = $("#carDiv");
+        var carPosition = car.offset().left + 20;
+        if (carPosition > 720) {
+          switchBackground();
+          return;
+        }
+        car.animate(
+          {
+            left: carPosition.toString() + "px"
+          }, 20
+        );
       }
     });
+
+    var background_index = 0;
+    var BACKGROUNDS = ["background0.png", "background1.png", "background2.png", "background3.png"]
+    function switchBackground() {
+      // var background = $("#background");
+      background_index = (background_index + 1)%BACKGROUNDS.length;
+      $("#background")[0].src = BACKGROUNDS[background_index]
+      $("#carDiv")[0].style.left = "20px";
+    }
   </script>
 </head>
 
@@ -61,7 +90,7 @@
     <!-- Header row -->
     <div class="row" position="relative" margin-top="10px">
       <div class="col-lg-12">
-        <img src="city.png" width="70%" alt="Could be portrait or landscape"/>
+        <img id="background" src="background0.png" alt="Could be portrait or landscape"/>
       </div>
     </div>
     <div id="carDiv">
