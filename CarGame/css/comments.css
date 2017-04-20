@@ -1,0 +1,59 @@
+.comment-text {
+    padding: 8px;
+    /*width: 220px;*/
+    overflow: overflow-x;
+}
+
+.comment-text:hover {
+    color: #428bca;
+    cursor: hand;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#comments {
+    overflow: scroll;
+    width: 100%;
+    display: inline-block;
+    /*border-style: solid;
+    border-width: 1px;
+    border-color: black;*/
+    position: relative;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.truncate {
+  /*width: 250px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compare-btn {
+  padding: 6px;
+  margin-left: 80px;
+  position: relative;
+}
+
+.dropdown.priv {
+  margin-top: 15px;
+  margin-bottom: 100px;
+}
+
+.priv-choice {
+  padding: 8px;
+}
+
+.priv-choice:hover {
+  background-color: #CCFFFF;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.priv-choice.selected {
+  color: white;
+  background-color: #428bca;
+}
+
+

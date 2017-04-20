@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>BFS</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <style>
+  /*body {*/
+  /*  background-image: url("city.png");
+    background-color: #cccccc;
+  }*/
+  #carDiv {
+    position: absolute;
+    zIndex: 1000;
+    top: 350px;
+    left: 20px;
+  }
+
+  #car {
+    width: 150px;
+  }
+
+
+  </style>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(document).on('keydown', function(e) {
+      console.log("key down", e);
+      if (e.keyCode == '37') {
+         // left arrow
+         console.log('left');
+      }
+      else if (e.keyCode == '39') {
+         console.log('right');
+         var x = $("#carDiv").offset().left + 10
+         $("#carDiv")[0].style.left = x.toString() + "px";
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- Header row -->
+    <div class="row" position="relative" margin-top="10px">
+      <div class="col-lg-12">
+        <img src="city.png" width="70%" alt="Could be portrait or landscape"/>
+      </div>
+    </div>
+    <div id="carDiv">
+      <img id="car" src="car.png" alt="Car"/>
+    </div>
+  </div>
+  <script>
+  </script>
+</body>
+
+</html>
