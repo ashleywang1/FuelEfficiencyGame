@@ -20,6 +20,9 @@
   #background {
     width:70%;
   }
+  #background_video {
+    width:70%;
+  }
   #carDiv {
     position: absolute;
     zIndex: 1000;
@@ -80,12 +83,17 @@
     });
 
     var background_index = 0;
-    var BACKGROUNDS = ["startGame.gif", "carSelection.png", "ac.png", "streetSelection.png", "startStop.png", "canoe.png", "tuneUp.png", "result2.png", "result3.png", "profiles.gif"]
+    var BACKGROUNDS = ["startGame.gif", "carSelection.png", "ac.png", "streetSelection.png", "startStop.png", "canoe.png", "video", "tuneUp.png", "result2.png", "result3.png", "profiles.gif"]
     function switchBackground() {
       // var background = $("#background");
       background_index = (background_index + 1)%BACKGROUNDS.length;
-      $("#background")[0].src = BACKGROUNDS[background_index]
-      $("#carDiv")[0].style.left = "20px";
+      if (BACKGROUNDS[background_index] == "video") {
+        $("#game")[0].innerHTML = "<video id=\"background_video\" autoplay><source src=\"driving.mp4\" type=\"video/mp4\"></video>";
+      } else {
+        $("#game")[0].innerHTML = "<img id=\"background\" src=\"" + BACKGROUNDS[background_index] + "\"/>";
+      }
+      
+      // $("#carDiv")[0].style.left = "20px";
     }
   </script>
 </head>
@@ -96,7 +104,8 @@
     <div class="row" position="relative">
       <div class="col-lg-12">
         <div id="game">
-          <img id="background" src="startGame.gif" alt="Could be portrait or landscape"/>
+          <img id="background" src="startGame.gif"/>
+          <!-- <video id="background_video" autoplay><source src="driving.mp4" type="video/mp4"></video> -->
         </div>
       </div>
     </div>
