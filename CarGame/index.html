@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>BFS</title>
+  <title>Driver Personality Quiz!</title>
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -31,7 +31,9 @@
     width: 150px;
   }
 
-
+  #game {
+    margin-top: 10px;
+  }
   </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,9 +75,12 @@
         );
       }
     });
+    $(document).on('click', function(e) {
+      switchBackground();
+    });
 
     var background_index = 0;
-    var BACKGROUNDS = ["background0.png", "background1.png", "background2.png", "background3.png"]
+    var BACKGROUNDS = ["startGame.gif", "carSelection.png", "ac.png", "streetSelection.png", "startStop.png", "canoe.png", "tuneUp.png", "result2.png", "result3.png", "profiles.gif"]
     function switchBackground() {
       // var background = $("#background");
       background_index = (background_index + 1)%BACKGROUNDS.length;
@@ -88,14 +93,16 @@
 <body>
   <div class="container-fluid">
     <!-- Header row -->
-    <div class="row" position="relative" margin-top="10px">
+    <div class="row" position="relative">
       <div class="col-lg-12">
-        <img id="background" src="background0.png" alt="Could be portrait or landscape"/>
+        <div id="game">
+          <img id="background" src="startGame.gif" alt="Could be portrait or landscape"/>
+        </div>
       </div>
     </div>
-    <div id="carDiv">
+    <!-- <div id="carDiv">
       <img id="car" src="car.png" alt="Car"/>
-    </div>
+    </div> -->
   </div>
   <script>
   </script>
