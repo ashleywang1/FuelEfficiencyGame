@@ -23,16 +23,6 @@
   #background_video {
     width:70%;
   }
-  #carDiv {
-    position: absolute;
-    zIndex: 1000;
-    top: 350px;
-    left: 20px;
-  }
-
-  #car {
-    width: 150px;
-  }
 
   #game {
     margin-top: 10px;
@@ -50,40 +40,40 @@
   <script src="js/bootstrap.min.js"></script>
   <script>
     // controlling car movement
-    $(document).on('keydown', function(e) {
-      if (e.keyCode == '37') { // left arrow
-        var car = $("#carDiv");
-        var carPosition = car.offset().left - 20;
-        console.log(carPosition);
-        if (carPosition < 40) {
-          return;
-        }
-        car.animate(
-          {
-            left: carPosition.toString() + "px"
-          }, 20
-        );
-      }
-      else if (e.keyCode == '39') { // right arrow
-        var car = $("#carDiv");
-        var carPosition = car.offset().left + 20;
-        if (carPosition > 720) {
-          switchBackground();
-          return;
-        }
-        car.animate(
-          {
-            left: carPosition.toString() + "px"
-          }, 20
-        );
-      }
-    });
+    // $(document).on('keydown', function(e) {
+    //   if (e.keyCode == '37') { // left arrow
+    //     var car = $("#carDiv");
+    //     var carPosition = car.offset().left - 20;
+    //     console.log(carPosition);
+    //     if (carPosition < 40) {
+    //       return;
+    //     }
+    //     car.animate(
+    //       {
+    //         left: carPosition.toString() + "px"
+    //       }, 20
+    //     );
+    //   }
+    //   else if (e.keyCode == '39') { // right arrow
+    //     var car = $("#carDiv");
+    //     var carPosition = car.offset().left + 20;
+    //     if (carPosition > 720) {
+    //       switchBackground();
+    //       return;
+    //     }
+    //     car.animate(
+    //       {
+    //         left: carPosition.toString() + "px"
+    //       }, 20
+    //     );
+    //   }
+    // });
     $(document).on('click', function(e) {
       switchBackground();
     });
 
     var background_index = 0;
-    var BACKGROUNDS = ["startGame.gif", "carSelection.png", "ac.png", "streetSelection.png", "startStop.png", "canoe.png", "video", "tuneUp.png", "result2.png", "result3.png", "profiles.gif"]
+    var BACKGROUNDS = ["startGame.gif", "carSelection.png", "ac.png", "streetSelection.png", "startStop.png", "canoe.png", "tuneUp.png","video", "result2.png", "result3.png", "profiles.gif"]
     function switchBackground() {
       // var background = $("#background");
       background_index = (background_index + 1)%BACKGROUNDS.length;
@@ -109,9 +99,6 @@
         </div>
       </div>
     </div>
-    <!-- <div id="carDiv">
-      <img id="car" src="car.png" alt="Car"/>
-    </div> -->
   </div>
   <script>
   </script>
